@@ -1,0 +1,28 @@
+import string
+import random
+
+print("Monoalphabetic Cipher")
+
+# Input the plain text
+plain_text = input("Enter the message: ")
+
+# Generate a random key by shuffling the alphabet
+alphabet = list(string.ascii_lowercase)
+random.shuffle(alphabet)
+key = ''.join(alphabet)
+
+# Initialize the cipher text
+cipher = ""
+
+# Encrypt the plain text
+for c in plain_text:
+    if c in string.ascii_lowercase:
+        index = ord(c) - ord('a')
+        cipher += key[index]
+    else:
+        cipher += c
+
+# Output the results
+print("Key: ", key)
+print("Encrypted Text: ", cipher)
+print("Decrypted Text: ", plain_text)

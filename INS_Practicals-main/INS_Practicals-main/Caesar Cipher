@@ -1,0 +1,25 @@
+print("Caesar Cipher ")
+
+def encrypt(text,s):
+    result=""
+    for i in range(len(text)):
+        char=text[i]
+        if(char.isupper()):
+            result+=chr((ord(char)+s-65)%26+65)
+        else:
+            result+=chr((ord(char)+s-97)%26+97)
+    return result
+
+
+plain=input("Enter the Plain Text : ")
+print("Original Text : ",plain)
+
+Shift=int(input("Enter number to shift further : "))
+print("Number to Shift Further : ",Shift)
+
+E=encrypt(plain,Shift)
+print("Encrypted Text : ",E)
+
+D=encrypt(E,26-Shift)
+print("Decrypted Text : ",D)
+          

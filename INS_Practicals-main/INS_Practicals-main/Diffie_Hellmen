@@ -1,0 +1,18 @@
+q = int(input("Enter value of q (a prime number): "))
+a = int(input("Enter value of alpha (primitive root modulo q): "))
+Xa = int(input("Enter private key Xa for user A: "))
+Xb = int(input("Enter private key Xb for user B: "))
+
+# Public keys generation
+Ya = pow(a, Xa, q)  # A's public key
+print("Public key Ya (from A):", Ya)
+
+Yb = pow(a, Xb, q)  # B's public key
+print("Public key Yb (from B):", Yb)
+
+# Secret key calculation
+ka = pow(Yb, Xa, q)  # A's secret key using B's public key
+kb = pow(Ya, Xb, q)  # B's secret key using A's public key
+
+print("Secret key calculated by A (ka):", ka)
+print("Secret key calculated by B (kb):", kb)

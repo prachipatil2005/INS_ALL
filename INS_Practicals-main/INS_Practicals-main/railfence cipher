@@ -1,0 +1,32 @@
+def main():
+    layers = int(input("Enter the number of layers: "))
+    plain = input("Enter the plain text: ")
+    ciphertext = encrypt(layers, plain)
+    print("Encrypted message:", ciphertext)
+
+
+def encrypt(layers, plain):
+    plain = plain.replace(" ", "")  # Remove spaces for simplicity
+    plain = plain.upper()
+
+    rail = [""] * layers  # Create a list of empty strings for each layer
+    layer = 0
+    direction = 1  # 1 means down, -1 means up
+
+    for char in plain:
+        rail[layer] += char  # Add character to the current layer
+        layer += direction
+
+        # Change direction when reaching top or bottom layer
+        if layer == layers - 1:
+            direction = -1
+        elif layer == 0:
+            direction = 1
+
+    # Join all layers to form the final ciphertext
+    cipher = "".join(rail)
+    return cipher
+
+
+if __name__ == "__main__":
+    main()

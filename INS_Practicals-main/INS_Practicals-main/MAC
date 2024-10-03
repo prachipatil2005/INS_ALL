@@ -1,0 +1,9 @@
+import hashlib
+
+result=hashlib.md5(b'CKT')
+
+result1=hashlib.md5(b'Gauri')
+
+print("Result = ",result.digest())
+                   
+print("Result1 = ",result1.digest())
